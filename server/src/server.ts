@@ -14,10 +14,10 @@ io.on("connection", socket => {
     socket.on("user-connected", (username: string) => {
         if(!userJoin(socket.id, username)){
             socket.emit("username-taken")
+        }else{
+            socket.emit("username-submitted-successfully")
+            io.to("myChat").emit("get-connected-users", getUsers());
         }
-
-        socket.emit("username-submitted-successfully")
-        io.to("myChat").emit("get-connected-users", getUsers());
     });
 
     socket.on("message", (message: {message: string; username: string}) => {
