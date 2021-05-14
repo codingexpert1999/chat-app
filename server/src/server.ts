@@ -11,7 +11,7 @@ const io = new Server(server, {cors: {origin: "http://localhost:3000"}});
 io.on("connection", socket => {
     socket.join("myChat");
 
-    socket.on("user-connected", (username: string) => {
+    socket.on("handle-connection", (username: string) => {
         if(!userJoin(socket.id, username)){
             socket.emit("username-taken")
         }else{

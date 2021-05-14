@@ -17,8 +17,6 @@ const App = () => {
   useEffect(() => {
     socketClient.current = io.connect("http://localhost:5000");
 
-    socketClient.current.connect();
-
     if(socketClient.current){
       socketClient.current.on("username-submitted-successfully", () => {
         setConnected(true);
@@ -45,7 +43,7 @@ const App = () => {
 
   const handleConnection = () => {
     if(socketClient.current){
-      socketClient.current.emit("user-connected", username);
+      socketClient.current.emit("handle-connection", username);
     }
   }
 
