@@ -58,12 +58,12 @@ const App = () => {
   return (
     <div className="app">
       {
-        (!connected || username === "") &&
+        !connected &&
         <EnterUsername handleConnection={handleConnection} username={username} setUsername={setUsername}/>
       }
 
       {
-        connected && username !== "" && 
+        connected && 
         <>
           <ConnectedUsers connectedUsers={connectedUsers}/>
 

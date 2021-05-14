@@ -20,7 +20,13 @@ const Messages = (props: {
                 e.preventDefault()
                 props.handleSendMessage();
             }}>
-                <input type="text" placeholder="Type your message..." value={props.message} onChange={e => props.setMessage(e.target.value)}/>
+                <input 
+                    type="text" 
+                    placeholder="Type your message..." 
+                    value={props.message} 
+                    onChange={e => props.setMessage(e.target.value)}
+                    required={true}
+                />
                 <button type="submit">Send</button>
             </form>
         </div>
